@@ -14,7 +14,7 @@ public class IFStatements : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             TemperatureTest();
 
-        coffeeTemperature -= Time.deltaTime * 5f
+        coffeeTemperature -= Time.deltaTime * 5f;
     }
 
     void TemperatureTest ()
