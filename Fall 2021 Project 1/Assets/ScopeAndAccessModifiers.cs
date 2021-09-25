@@ -19,11 +19,11 @@ public class ScopeAndAccessModifiers : MonoBehaviour
     }
 
     void Example (int pens, int crayons)
-        {
+    {
         int answer;
         answer = pens * crayons * alpha;
         Debug.Log(answer);
-        }
-    void Update() => Debug.Log("Alpha is set to: " + alpha)
+    }
+    void Update() => Debug.Log("Alpha is set to: " + alpha);
 
 }
