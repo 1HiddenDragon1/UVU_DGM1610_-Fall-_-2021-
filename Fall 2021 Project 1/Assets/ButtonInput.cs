@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Note: GetButton is advised for unity
+//(see Unity's GetButton and GetKey tutorial for details)
+
 public class ButtonInput : MonoBehaviour
 {
     public Image graphic;
@@ -20,6 +23,11 @@ public class ButtonInput : MonoBehaviour
 
     void Update()
     {
+        /*Pressing a button down activates GetButtonDown and GetButton (aka held)
+         * holding a button down keeps the GetButton activated
+         * letting go of a button only has GetButtonUp activate
+         */
+
         bool down = Input.GetButtonDown("Jump");
         bool held = Input.GetButton("Jump");
         bool up = Input.GetButtonUp("Jump");
