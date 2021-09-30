@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class CSharpSyntax : MonoBehaviour
     namespace Helloworld
 {
     class Program
