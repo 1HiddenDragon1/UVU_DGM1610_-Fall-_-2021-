@@ -36,6 +36,7 @@ namespace MyApplication
             {
                 Console.WriteLine("The school is big");
             }
+            //else if gives an additional condition to the if statement. else if can have many options.
             else if (SchoolSize < 3)
             {
                 Console.WriteLine("The school is small");
@@ -44,6 +45,12 @@ namespace MyApplication
             {
                 Console.WriteLine("The school is quaint");
             }
+
+            //shorthand if/else statement. See structure below
+            //variable = (condition) ? expressionTrue : expressionFalse;
+            int hour = 7;
+            string result = (hour < 12) ? "Good morning." : "Good evening.";
+            Console.WriteLine(result);
         }
     }
 }
