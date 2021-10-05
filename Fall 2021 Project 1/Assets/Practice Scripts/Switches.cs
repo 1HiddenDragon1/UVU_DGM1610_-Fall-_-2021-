@@ -32,6 +32,24 @@ namespace MyApplication
                     break;
                 //output will be Friday (day 5)
             }
+
+            int time = 4;
+            switch (time)
+            {
+                case 7:
+                    Console.WriteLine("It is time for breakfast.");
+                    break;
+                case 12:
+                    Console.WriteLine("It is time for lunch.");
+                    break;
+                case 5:
+                    Console.WriteLine("It is time for dinner.");
+                    break;
+                default: //default is like the else statement. if none of the cases are triggered then default will activate.
+                    Console.WriteLine("It is not quite time to eat.");
+                    break; //break is still required for default statements.
+                //output will be "It is not quite time to eat."
+            }
         }
     }
 }
