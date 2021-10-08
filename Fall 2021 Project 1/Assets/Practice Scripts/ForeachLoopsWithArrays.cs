@@ -52,6 +52,14 @@ namespace MyApplication
                 Console.WriteLine(i);
             }
             //output is bass salmon trout
+
+            //sorting an array of numbers will work negative to positive if you have "int"
+            int[] numbers = { 10, -11, 15 };
+            Array.Sort(numbers);
+            foreach (int i in numbers)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
