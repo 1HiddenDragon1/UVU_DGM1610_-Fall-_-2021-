@@ -7,12 +7,12 @@ namespace MyApplication
         static void Main(string[] args)
         {
             //to declare an array, put the variable type then [] after
-            string[] swords = {"Broadsword", "Katana", "Falcion", "Shortsword", "Cutlass"};
+            string[] swords = { "Broadsword", "Katana", "Falcion", "Shortsword", "Cutlass" };
             Console.WriteLine(swords[0]);
             //output is Broadsword because arrays naturally start at 0.
 
             //to change an element refer to the index number
-            string[] dragons = {"Fire breathing", "Aquatic", "Ice", "Earthshaking", "Skydweller"};
+            string[] dragons = { "Fire breathing", "Aquatic", "Ice", "Earthshaking", "Skydweller" };
             dragons[2] = "Iceborn";
             Console.WriteLine(dragons[2]);
             //output is Iceborn instead of Ice because the #2 array item was changed
@@ -26,7 +26,7 @@ namespace MyApplication
 
             //putting the array through a loop. can be used to display all components of an array or specific components.
             //example shows all components of array being displayed.
-            string[] TMNT = {"Leonardo", "Donatello", "Michelangelo", "Raphael"};
+            string[] TMNT = { "Leonardo", "Donatello", "Michelangelo", "Raphael" };
             for (int i = 0; i < TMNT.Length; i++)
             {
                 Console.WriteLine(TMNT[i]);
@@ -42,6 +42,16 @@ namespace MyApplication
                 Console.WriteLine(i);
             }
             //output is all five fightingStyles
+
+            //how to sort an array alphabetically (first to last) or numerically (small to large).
+            //note: unsure how to work with negative numbers or to have it go last to first or large to small.
+            string[] fish = { "salmon", "bass", "trout" };
+            Array.Sort(fish);
+            foreach (string i in fish)
+            {
+                Console.WriteLine(i);
+            }
+            //output is bass salmon trout
         }
     }
 }
