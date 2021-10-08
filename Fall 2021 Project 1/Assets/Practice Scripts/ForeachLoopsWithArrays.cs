@@ -33,6 +33,15 @@ namespace MyApplication
             }
             //output is all four names.
             //remember correct syntax!
+
+            //foreach code loop will send out everything in a code loop.
+            //The loop is done so more quickly and easy to write out in foreach.
+            string[] fightingStyle = { "Boxer", "Kickboxer", "Judo", "Karate", "CQC" };
+            foreach (string i in fightingStyle)
+            {
+                Console.WriteLine(i);
+            }
+            //output is all five fightingStyles
         }
     }
 }
