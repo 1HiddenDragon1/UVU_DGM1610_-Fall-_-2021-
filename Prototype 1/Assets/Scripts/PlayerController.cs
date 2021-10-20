@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //player input
+    //player input. made private so that it cannot be changed during the game anymore
     private float speed = 18.0f;
     private float turnSpeed = 30.0f;
     private float horizontalInput;

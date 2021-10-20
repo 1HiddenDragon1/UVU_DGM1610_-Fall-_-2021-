@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    //camera is attached to the player and offset
+    //camera is attached to the player and offset. 
     public GameObject Player;
     private Vector3 offset = new Vector3(0, 6, -7);
 
@@ -14,7 +14,7 @@ public class FollowPlayer : MonoBehaviour
         
     }
 
-    // LateUpdate is called after update to cause smooth camera movement
+    // LateUpdate is called after update to cause smooth camera movement as it follows the vehicle
     void LateUpdate()
     {
         transform.position = Player.transform.position + offset;
