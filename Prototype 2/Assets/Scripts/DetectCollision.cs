@@ -7,15 +7,16 @@ public class DetectCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
+    //assets with colliders are destroyed when they impact each other
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
