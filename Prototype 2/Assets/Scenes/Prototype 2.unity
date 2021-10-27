@@ -571,8 +571,7 @@ MonoBehaviour:
   AnimalPrefabs:
   - {fileID: 2245869386032130876, guid: 835f317b2d2743c439c0eff7680c0131, type: 3}
   - {fileID: 8686938117979716479, guid: b26b69d5694965446b65a0d386a3ce01, type: 3}
-  - {fileID: 8033595676526203542, guid: b2759bb58f7d0f449bd94577458b8275, type: 3}
-  animalIndex: 0
+  - {fileID: 1659032861116516181, guid: ed1fb47964389394ba6e7c7f405c9f7a, type: 3}
 --- !u!4 &725924471
 Transform:
   m_ObjectHideFlags: 0
