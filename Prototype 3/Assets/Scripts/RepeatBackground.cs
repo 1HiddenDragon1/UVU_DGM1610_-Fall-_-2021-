@@ -10,6 +10,7 @@ public class RepeatBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //background is reset at the halfway point
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider>().size.x / 2;
     }
@@ -17,6 +18,7 @@ public class RepeatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if statement to know when to start the reset
         if (transform.position.x < startPos.x - repeatWidth)
         {
             transform.position = startPos;
