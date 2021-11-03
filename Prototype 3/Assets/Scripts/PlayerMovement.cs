@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody playerRB;
     private Animator playerAnim;
+    public ParticleSystem explosionParticle;
     public float jumpForce;
     public float gravityModifier;
     public bool isOnGround = true;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Game Over");
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
+            explosionParticle.Play();
         }
     }
 }
