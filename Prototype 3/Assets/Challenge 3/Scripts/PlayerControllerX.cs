@@ -56,7 +56,7 @@ public class PlayerControllerX : MonoBehaviour
         // if player collides with ground then cause bounce
         else if (other.gameObject.CompareTag("Ground"))
         {
-            playerRb.AddForce(Vector3.up * floatForce);
+            playerRb.AddForce(Vector3.up * 10, ForceMode.Impulse);
             playerAudio.PlayOneShot(boingSound, 1.0f);
         }
 
