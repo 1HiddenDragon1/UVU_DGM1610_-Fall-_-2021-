@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
      */
     public float speed;
     private Rigidbody playerRB;
-    public Camera cam;
 
     private float xBound = 10.5f;
     private float zBound = 5.0f;
@@ -30,11 +29,16 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
 
+        playerRB.MovePosition(playerRB.position + movement * speed * Time.deltaTime);
+
+        //mouse position gives the player a rotation value
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        playerRB.MovePosition(playerRB.position + movement * speed * Time.deltaTime);
-        
+        Vector3 lookDir = mousePos - playerRB.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        playerRB.rotation = angle;
 
+        //player boundaries are set
         if (transform.position.x < -xBound)
         {
             transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
