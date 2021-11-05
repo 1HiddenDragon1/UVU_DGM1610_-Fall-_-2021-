@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
      */
     public float speed;
     private Rigidbody playerRB;
+    public Camera cam;
+
+    private float xBound = 10.5f;
+    private float zBound = 5.0f;
+    
+    Vector3 movement;
+    Vector3 mousePos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +27,32 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //player moves at a vector 3 speed based on player input from keys
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxis("Horizontal");
+        movement.z = Input.GetAxis("Vertical");
 
-        playerRB.AddForce(Vector3.forward * speed * verticalInput);
-        playerRB.AddForce(Vector3.right * speed * horizontalInput);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        playerRB.MovePosition(playerRB.position + movement * speed * Time.deltaTime);
+        
+
+        if (transform.position.x < -xBound)
+        {
+            transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x > xBound)
+        {
+            transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z < -zBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
+        }
+
+        if (transform.position.z > zBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+        }
     }
 }
