@@ -32,4 +32,12 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy") && hasPowerup == true)
+        {
+            Debug.Log("Collision with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+        }
+    }
 }
