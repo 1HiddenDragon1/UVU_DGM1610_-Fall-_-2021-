@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRb;
     public float speed = 5.0f;
     private GameObject focalPoint;
+    public bool hasPowerup = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,14 @@ public class PlayerMovement : MonoBehaviour
         float forwardInput = Input.GetAxis("Vertical");
 
         playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup"))
+        {
+            hasPowerup = true;
+            Destroy(other.gameObject);
+        }
     }
 }
