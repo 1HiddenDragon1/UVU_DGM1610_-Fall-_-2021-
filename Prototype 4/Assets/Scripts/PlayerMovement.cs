@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //gameobjects found in heirarchy
     private Rigidbody playerRb;
+    private GameObject focalPoint;
+    public GameObject powerupIndicator;
+
+    //speed, powerup strenth and boolean are set
     public float speed = 5.0f;
     public float powerupStrength = 15.0f;
-    private GameObject focalPoint;
     public bool hasPowerup = false;
-    public GameObject powerupIndicator;
 
     // Start is called before the first frame update
     void Start()
     {
+        //player rigidbody and focal point are selected for the game from the heirarchy
         playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
     }
@@ -21,12 +25,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //player input is established for the player
         float forwardInput = Input.GetAxis("Vertical");
 
+        //player movement is set and powerup indicator follows player movement
         playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
 
+    //powerup trigger is established
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Powerup"))
@@ -38,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //timer set for powerup
     IEnumerator PowerupCountdownRoutine()
     {
         yield return new WaitForSeconds(7);
@@ -45,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         powerupIndicator.gameObject.SetActive(false);
     }
 
+    //collision is made more impactful with powerup
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy") && hasPowerup == true)

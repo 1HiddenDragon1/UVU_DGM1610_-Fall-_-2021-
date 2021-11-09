@@ -13,6 +13,7 @@ public class SpawnManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Enemy and powerup are spawned at the beginning of the game
         SpawnEnemyWave(waveNumber);
         Instantiate(powerupPrefab, GenerateSpawnPos(), powerupPrefab.transform.rotation);
     }
@@ -20,6 +21,7 @@ public class SpawnManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //enemy is found in the game heirarchy and new waves are started when enemy count = 0
         enemyCount = FindObjectsOfType<EnemyMovement>().Length;
 
         if (enemyCount == 0)
@@ -30,6 +32,7 @@ public class SpawnManagerScript : MonoBehaviour
         }
     }
 
+    //Spawn enemy wave is cleaned up and made into a for loop
     void SpawnEnemyWave(int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
@@ -38,6 +41,7 @@ public class SpawnManagerScript : MonoBehaviour
         }
     }
 
+    //spawn locations are made random and the return variable is returned to the game script
     private Vector3 GenerateSpawnPos()
     {
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
