@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody playerRb;
     public float speed = 5.0f;
+    public float powerupStrength = 15.0f;
     private GameObject focalPoint;
     public bool hasPowerup = false;
 
@@ -37,7 +38,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy") && hasPowerup == true)
         {
+            Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
+
             Debug.Log("Collision with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+            enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
         }
     }
 }
