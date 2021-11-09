@@ -7,11 +7,12 @@ public class SpawnManagerScript : MonoBehaviour
     public GameObject enemyPrefab;
     public float spawnRange = 9.0f;
     public int enemyCount;
+    public int waveNumber = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemyWave(4);
+        SpawnEnemyWave(waveNumber);
     }
 
     // Update is called once per frame
@@ -21,7 +22,8 @@ public class SpawnManagerScript : MonoBehaviour
 
         if (enemyCount == 0)
         {
-            SpawnEnemyWave(1);
+            waveNumber++;
+            SpawnEnemyWave(waveNumber);
         }
     }
 
