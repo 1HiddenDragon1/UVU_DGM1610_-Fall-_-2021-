@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        PlayerFollowsMouse();
         PlayerBounds();
     }
 
@@ -40,16 +41,19 @@ public class PlayerController : MonoBehaviour
         movement.z = Input.GetAxis("Vertical");
 
         playerRB.MovePosition(playerRB.position + movement * speed * Time.deltaTime);
+    }
 
+    void PlayerFollowsMouse()
+    {
+        //player looks towards the mouse in 3D setting
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
+        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+        float hitDist = 0.0f;
 
-        /*mouse position gives the player a rotation value
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector3 lookDir = mousePos - playerRB.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        playerRB.rotation = angle;
-        */
-
+        if (playerPlane.Raycast(ray, out hitDist))
+        {
+            Vector3 targetPoint
+        }
     }
 
     void PlayerBounds()
