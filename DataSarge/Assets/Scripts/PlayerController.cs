@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerBounds()
     {
-        //player boundaries are set. black walls are triggers for bullets to explode.
+        //player boundaries are set. black walls are triggers for projectiles to be destroyed.
         if (transform.position.x < -xBound)
         {
             transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
