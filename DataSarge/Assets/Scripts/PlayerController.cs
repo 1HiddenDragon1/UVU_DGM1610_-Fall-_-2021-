@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float xBound = 10.5f;
     private float zBound = 5.0f;
 
+    public GameObject projectilePrefab;
     
     Vector3 movement;
 
@@ -28,6 +29,11 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         PlayerFollowsMouse();
         PlayerBounds();
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+           // Shoot();
+        }
     }
 
 
@@ -80,7 +86,12 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
     }
-
+/*
+    void Shoot()
+    {
+        Instantiate(projectilePrefab);
+    }
+*/
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Powerup"))
