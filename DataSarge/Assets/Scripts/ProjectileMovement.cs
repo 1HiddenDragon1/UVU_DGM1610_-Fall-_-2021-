@@ -6,6 +6,8 @@ public class ProjectileMovement : MonoBehaviour
 {
     public float projectileSpeed = 5.0f;
     private Rigidbody projectileRB;
+    private float xBorder = 30;
+    private float zBorder = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,27 @@ public class ProjectileMovement : MonoBehaviour
     {
         projectileRB.AddForce(Vector3.forward * projectileSpeed);
 
-        if (transform.position.z > 20)
+        ProjectileBorder();
+    }
+
+    void ProjectileBorder()
+    {
+        if (transform.position.z > zBorder)
+        {
+            Destroy(gameObject);
+        }
+
+        if (transform.position.z < -zBorder)
+        {
+            Destroy(gameObject);
+        }
+
+        if (transform.position.x > xBorder)
+        {
+            Destroy(gameObject);
+        }
+
+        if (transform.position.x < -xBorder)
         {
             Destroy(gameObject);
         }
