@@ -17,5 +17,10 @@ public class ProjectileMovement : MonoBehaviour
     void Update()
     {
         projectileRB.AddForce(Vector3.forward * projectileSpeed);
+
+        if (transform.position.z > 20)
+        {
+            Destroy(gameObject);
+        }
     }
 }
