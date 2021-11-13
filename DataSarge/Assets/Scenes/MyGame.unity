@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505486205}
   m_Layer: 0
-  m_Name: Player Fire area
+  m_Name: GunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505486204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 0.0059999824, z: 0.7469999}
+  m_LocalPosition: {x: 0.22, y: 0.0059999824, z: 1.062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1514561013}
@@ -532,9 +532,9 @@ GameObject:
   - component: {fileID: 1514561013}
   - component: {fileID: 1514561012}
   - component: {fileID: 1514561011}
+  - component: {fileID: 1514561015}
   - component: {fileID: 1514561010}
   - component: {fileID: 1514561014}
-  - component: {fileID: 1514561015}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -633,6 +633,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3.75
+  projectilePrefab: {fileID: 349776488804691406, guid: d33ae8f985bf63741a4f7cf16e0f901b, type: 3}
+  gunbarrel: {fileID: 1505486205}
 --- !u!54 &1514561015
 Rigidbody:
   m_ObjectHideFlags: 0
