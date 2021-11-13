@@ -5,7 +5,11 @@ using UnityEngine;
 public class ProjectileMovement : MonoBehaviour
 {
     public float projectileSpeed = 5.0f;
+
     private Rigidbody projectileRB;
+    private GameObject player;
+    private GameObject gun;
+
     private float xBorder = 30;
     private float zBorder = 20;
 
@@ -13,12 +17,15 @@ public class ProjectileMovement : MonoBehaviour
     void Start()
     {
         projectileRB = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player");
+        gun = GameObject.Find("Gun");
     }
 
     // Update is called once per frame
     void Update()
     {
-        projectileRB.AddForce(Vector3.forward * projectileSpeed);
+        Vector3 projectileTravel = gun.transform.position - player.transform.position;
+        projectileRB.AddForce(projectileTravel * projectileSpeed, ForceMode.Impulse);
 
         ProjectileBorder();
     }
