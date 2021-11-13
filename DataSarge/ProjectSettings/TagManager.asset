@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Barrier
   - Projectile
-  - Projectile Bad
   - Enemy
+  - Powerup
   layers:
   - Default
   - TransparentFX

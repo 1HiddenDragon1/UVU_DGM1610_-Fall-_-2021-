@@ -11,12 +11,9 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private float xBound = 10.5f;
     private float zBound = 5.0f;
+
     
     Vector3 movement;
-
-    /* if able to make character follow mouse movements, here is the beginning script
-    Vector3 mousePos;
-    */
 
 
     // Start is called before the first frame update
@@ -81,6 +78,23 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z > zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
