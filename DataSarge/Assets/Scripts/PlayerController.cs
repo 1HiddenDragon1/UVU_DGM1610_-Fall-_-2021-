@@ -100,13 +100,4 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-        }
-    }
 }
