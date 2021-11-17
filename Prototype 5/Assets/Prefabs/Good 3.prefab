@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &6067468943810643539
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817687150127322869}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2414516961207340944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6067468943810643539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817687150127322869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8882662471342547345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,7 +50,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1833534958246786, guid: 07cd57be5fe3a3a4082d14214f7c6ba1, type: 3}
       propertyPath: m_Name
-      value: Ball_Nuclear
+      value: Good 3
       objectReference: {fileID: 0}
     - target: {fileID: 4531890907577742, guid: 07cd57be5fe3a3a4082d14214f7c6ba1, type: 3}
       propertyPath: m_RootOrder
