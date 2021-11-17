@@ -4,33 +4,30 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    //basic gameplay is established and allowed to be made more clean using labeled floats
     private Rigidbody targetRb;
+    private GameManager gameManager;
+    public ParticleSystem explosionParticle;
     private float minSpeed = 12;
     private float maxSpeed = 16;
     private float maxTorque = 10;
     private float xRange = 4;
     private float ySpawnPos = -2;
-    private GameManager gameManager;
     public int pointValue;
-    public ParticleSystem explosionParticle;
 
     // Start is called before the first frame update
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-
+        
+        //objects spawn with these qualities
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPos();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //mouse click destroyes objects, makes particle effects, and points updated
     private void OnMouseDown()
     {
         if (gameManager.isGameActive)
@@ -41,6 +38,7 @@ public class Target : MonoBehaviour
         }
     }
 
+    //objects that are not destroyed by player are destroyed by collider. game ends if it isn't a bad object
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
@@ -50,6 +48,7 @@ public class Target : MonoBehaviour
         }
     }
 
+    //cleaner object spawning data
     Vector3 RandomForce()
     {
         return Vector3.up * Random.Range(minSpeed, maxSpeed);

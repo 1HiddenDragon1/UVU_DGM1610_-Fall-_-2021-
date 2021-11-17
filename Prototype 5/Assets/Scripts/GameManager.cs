@@ -4,9 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//game can restart and buttons are allowed
 
 public class GameManager : MonoBehaviour
 {
+    //list of objects, text, buttons, and spawning is established.
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
@@ -16,18 +18,7 @@ public class GameManager : MonoBehaviour
     private int score;
     private float spawnRate = 1.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //objects spawn while game is active
     IEnumerator SpawnTarget()
     {
         while (isGameActive)
@@ -38,12 +29,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //score is changed using these parameters
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
     }
 
+    //game over causes these things to occur
     public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
@@ -51,11 +44,13 @@ public class GameManager : MonoBehaviour
         isGameActive = false;
     }
 
+    //game restart established. needed to have UnityEngine.SceneManagement in order to do this.
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    //difficulty selection causes title screen to disappear and gameplay to start.
     public void StartGame(int difficulty)
     {
         isGameActive = true;
