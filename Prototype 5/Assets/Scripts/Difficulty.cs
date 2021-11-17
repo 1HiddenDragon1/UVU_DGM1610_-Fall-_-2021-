@@ -7,6 +7,7 @@ public class Difficulty : MonoBehaviour
 {
     private Button button;
     private GameManager gameManager;
+    public int difficulty;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Difficulty : MonoBehaviour
 
     void SetDifficulty()
     {
-        gameManager.StartGame();
+        gameManager.StartGame(difficulty);
         Debug.Log(gameObject.name + " was clicked");
     }
 }
