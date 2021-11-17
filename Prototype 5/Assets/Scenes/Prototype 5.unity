@@ -517,7 +517,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -82.374054, w: -11.767761}
+  m_margin: {x: 0, y: 0, z: -233.88342, w: -169.16106}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   - {fileID: 7948943407151047885, guid: 0c7ebe25cb851cf4bbadeacb9f755dbb, type: 3}
   - {fileID: 6410161337188290838, guid: f33e8678877095142ba786ba8a4da5ab, type: 3}
   - {fileID: 4817687150127322869, guid: f274240e0bfd73e4490cde39c8f93d4d, type: 3}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 887355649}
 --- !u!4 &2078694528
 Transform:
   m_ObjectHideFlags: 0
