@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void SpawnEnemy()
@@ -46,12 +46,12 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBarrier()
     {
-        float nonHostileRandomX = Random.Range(-xNonHostileSpawn, xNonHostileSpawn);
-        float nonHostileRandomZ = Random.Range(-zNonHostileSpawn, zNonHostileSpawn);
+            float nonHostileRandomX = Random.Range(-xNonHostileSpawn, xNonHostileSpawn);
+            float nonHostileRandomZ = Random.Range(-zNonHostileSpawn, zNonHostileSpawn);
 
-        Vector3 spawnNHPos = new Vector3(nonHostileRandomX, yNonHostileSpawn, nonHostileRandomZ);
+            Vector3 spawnNHPos = new Vector3(nonHostileRandomX, yNonHostileSpawn, nonHostileRandomZ);
 
-        Instantiate(barrier, spawnNHPos, barrier.gameObject.transform.rotation);
+            Instantiate(barrier, spawnNHPos, barrier.gameObject.transform.rotation);
     }
 
     void SpawnInvincibility()
