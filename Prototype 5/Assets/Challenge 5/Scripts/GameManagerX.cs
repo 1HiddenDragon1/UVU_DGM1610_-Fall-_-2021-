@@ -88,22 +88,25 @@ public class GameManagerX : MonoBehaviour
         if (timeValue > 0)
         {
             timeValue -= Time.deltaTime;
-            timerText.text = "Timer: " + timeValue;
         }
         else
         {
             timeValue = 0;
-            timerText.text = "Timer: " + timeValue;
             GameOver();
         }
     }
-    /*
+
     void DisplayTime(float timeToDisplay)
     {
+        if (timeToDisplay <0)
+        {
+            timeToDisplay = 0;
+        }
+        
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        
         timerText.text = string.Format("(1:00)", seconds);
     }
-    */
 
     // Stop game, bring up game over text and restart button
     public void GameOver()
