@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectilePrefab;
     public Transform gunbarrel;
+    public GameObject powerupIndicator;
 
     Vector3 movement;
 
-    public bool isInvincible = false;
+    public bool isInvincible;
+    private float powerUpDuration = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,9 @@ public class PlayerController : MonoBehaviour
         {
            Shoot();
         }
+
+        // Set powerup indicator position to beneath player
+        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
 
 
@@ -100,6 +105,15 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             isInvincible = true;
+            powerupIndicator.SetActive(true);
+            StartCoroutine(PowerupCooldown());
         }
+    }
+
+    IEnumerator PowerupCooldown()
+    {
+        yield return new WaitForSeconds(powerUpDuration);
+        isInvincible = false;
+        powerupIndicator.gameObject.SetActive(false);
     }
 }
