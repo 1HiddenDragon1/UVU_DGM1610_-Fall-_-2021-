@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject player;
 
-    private PlayerController playerScript;
+    public PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +45,5 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
-        /*
-        else if (other.gameObject.CompareTag("Player"))
-        {
-
-        }
-        */
     }
 }
