@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 movement;
 
+    public bool isInvincible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -93,11 +94,12 @@ public class PlayerController : MonoBehaviour
         Instantiate(projectilePrefab, gunbarrel.position, gunbarrel.rotation);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Powerup"))
         {
             Destroy(other.gameObject);
+            isInvincible = true;
         }
     }
 }

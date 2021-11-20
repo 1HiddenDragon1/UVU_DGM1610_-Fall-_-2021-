@@ -9,11 +9,14 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject player;
 
+    private PlayerController playerScript;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -23,7 +26,7 @@ public class Enemy : MonoBehaviour
         enemyRb.AddForce(lookDirection * enemySpeed);
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Barrier"))
         {
@@ -31,16 +34,22 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        else if (other.gameObject.CompareTag("Projectile"))
+        if (other.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
 
-        else if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+        /*
+        else if (other.gameObject.CompareTag("Player"))
+        {
+
+        }
+        */
     }
 }
