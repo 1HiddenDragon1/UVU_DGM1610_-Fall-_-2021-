@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject player;
 
-    public PlayerController playerScript;
+    private PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * enemySpeed);
+        enemyRb.MovePosition(enemyRb.position + lookDirection * enemySpeed * Time.deltaTime);
     }
 
     public void OnCollisionEnter(Collision other)
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && playerScript.isInvincible == false)
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
