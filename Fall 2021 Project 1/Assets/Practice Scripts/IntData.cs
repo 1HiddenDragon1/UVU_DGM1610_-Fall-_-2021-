@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class IntData : MonoBehaviour
+[CreateAssetMenu]
+public class IntData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public int bushel;
+
+    public void UpdateValue(int apple)
     {
-        
+        bushel += apple;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReplaceValue(int apple)
     {
-        
+        bushel = apple;
+    }
+
+    public void DisplayImage(Image img)
+    {
+        img.fillAmount = bushel;
+    }
+
+    public void DisplayNumber(Text txt)
+    {
+        txt.text = bushel.ToString();
     }
 }
