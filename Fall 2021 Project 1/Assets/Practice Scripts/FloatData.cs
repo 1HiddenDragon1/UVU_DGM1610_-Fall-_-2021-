@@ -9,34 +9,34 @@ public class FloatData : ScriptableObject
 {
     public UnityEvent onZeroDataEvent;
 
-    public float Data;
+    public float data;
 
     public void UpdateValue(float amount)
     {
-        Data += amount;
+        data += amount;
     }
 
     public void ReplaceValue(float amount)
     {
-        Data = amount;
+        data = amount;
     }
 
     public void DisplayImage(Image img)
     {
-        if (Data <= 0)
+        if (data <= 0)
         {
             onZeroDataEvent.Invoke();
         }
-        else if (Data >= 1)
+        else if (data >= 1)
         {
-            Data = 1;
+            data = 1;
         }
 
-        img.fillAmount = Data;
+        img.fillAmount = data;
     }
 
     public void DisplayNumber(Text txt)
     {
-        txt.text = Data.ToString();
+        txt.text = data.ToString();
     }
 }
