@@ -30,6 +30,8 @@ public class Vector3Data : ScriptableObject
         if (fireballSpeed >= 50.0f)
         {
             castSpell.Invoke();
+            ResetFireballSpeed(power);
         }
+
     }
 }
