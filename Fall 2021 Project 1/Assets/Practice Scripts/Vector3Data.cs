@@ -9,7 +9,6 @@ public class Vector3Data : ScriptableObject
 {
     public UnityEvent castSpell;
     public float fireballSpeed;
-    public float power = 10.0f;
 
     //In the event that UpdateFireballSpeed is started, the current fireballSpeed
     //will be increased according to power's set amount
@@ -24,14 +23,26 @@ public class Vector3Data : ScriptableObject
         fireballSpeed = power;
     }
 
-    //if fireballSpeed reaches or exceeds 50.0f power then the fireball will be cast.
+    //if fireballSpeed is below or equal to 0 power then the fireball will not be seen.
+    //if fireballSpeed is above or equal to 1 it will be fully charged and cast the spell
     public void CastFireball(Image img)
     {
-        if (fireballSpeed >= 50.0f)
+        if (fireballSpeed <= 0)
+        {
+            fireballSpeed = 0;
+        }
+        else if (fireballSpeed >= 1)
         {
             castSpell.Invoke();
-            ResetFireballSpeed(power);
         }
 
+        //img.fillAmount determines how much the fireballSpeed is seen outside of the if / else if statment
+        img.fillAmount = fireballSpeed;
+    }
+
+    //amount of fireballSpeed is "powered up"
+    public void DisplayFireballSpeed(Text txt)
+    {
+        txt.text = fireballSpeed.ToString();
     }
 }
