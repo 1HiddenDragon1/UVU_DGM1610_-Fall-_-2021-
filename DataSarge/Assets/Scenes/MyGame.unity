@@ -470,6 +470,7 @@ MonoBehaviour:
   barrier: {fileID: 688007100256236279, guid: 4fce78992b814e449b63eaa794d6f6f3, type: 3}
   enemy: {fileID: 1366920132255285292, guid: 1a22264d1b6cddf468643f96ac8c4236, type: 3}
   invincibility: {fileID: 2571533662278670421, guid: 9b0cae14d9c1ed0409276debe834c128, type: 3}
+  scoreText: {fileID: 1517350935}
   gameOver: 0
 --- !u!4 &1377367712
 Transform:

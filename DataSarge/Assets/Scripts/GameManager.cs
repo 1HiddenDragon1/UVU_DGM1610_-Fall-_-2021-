@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject barrier;
     public GameObject enemy;
     public GameObject invincibility;
+    public TextMeshProUGUI scoreText;
+
+    private int score;
 
     private float zEnemySpawn = 12.0f;
     private float xEnemySpawn = 20.0f;
@@ -26,12 +30,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        while (gameOver == false)
-        {
-            InvokeRepeating("SpawnEnemy", enemySpawnDelay, enemySpawnTimer);
-            InvokeRepeating("SpawnBarrier", nonHostileSpawnDelay, nonHostileSpawnTimer);
-            InvokeRepeating("SpawnInvincibility", nonHostileSpawnDelay, nonHostileSpawnTimer);
-        }
+        InvokeRepeating("SpawnEnemy", enemySpawnDelay, enemySpawnTimer);
+        InvokeRepeating("SpawnBarrier", nonHostileSpawnDelay, nonHostileSpawnTimer);
+        InvokeRepeating("SpawnInvincibility", nonHostileSpawnDelay, nonHostileSpawnTimer);
+        
+        score = 0;
+        UpdateScore(0);
     }
 
 
@@ -44,6 +48,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score: " + score;
+    }
 
     void SpawnEnemy()
     {
