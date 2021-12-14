@@ -270,6 +270,8 @@ MonoBehaviour:
   speed: 3.75
   projectilePrefab: {fileID: 349776488804691406, guid: d33ae8f985bf63741a4f7cf16e0f901b, type: 3}
   gunbarrel: {fileID: 3580379116856347807}
+  powerupIndicator: {fileID: 0}
+  isInvincible: 0
 --- !u!1001 &1280024040508494772
 PrefabInstance:
   m_ObjectHideFlags: 0

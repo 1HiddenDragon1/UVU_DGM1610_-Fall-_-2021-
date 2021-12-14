@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         PlayerFollowsMouse();
         PlayerBounds();
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
            Shoot();
         }

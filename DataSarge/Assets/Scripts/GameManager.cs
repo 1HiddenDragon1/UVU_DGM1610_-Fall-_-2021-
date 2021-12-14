@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
     public GameObject invincibility;
     public TextMeshProUGUI scoreText;
+    //public ParticleSystem explosionParticle;
 
     private int score;
 
@@ -46,9 +47,11 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
         }
+
+        //IfDestroyed();
     }
 
-    void UpdateScore(int scoreToAdd)
+    public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
@@ -92,4 +95,13 @@ public class GameManager : MonoBehaviour
             Instantiate(invincibility, spawnNHPos, invincibility.gameObject.transform.rotation);
         }
     }
+    /*
+    void IfDestroyed()
+    {
+        if (GameObject.FindGameObjectWithTag("Player") == false)
+        {
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        }
+    }
+    */
 }

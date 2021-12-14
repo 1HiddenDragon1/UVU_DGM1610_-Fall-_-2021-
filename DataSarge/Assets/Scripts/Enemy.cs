@@ -8,12 +8,18 @@ public class Enemy : MonoBehaviour
     public float enemySpeed = 5.0f;
     private Rigidbody enemyRb;
     private GameObject player;
+    private GameManager gameManager;
+
+    public ParticleSystem enemyExplosionParticle;
+    public ParticleSystem barrierExplosionParticle;
+    public ParticleSystem playerExplosionParticle;
 
     private PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
         playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -32,18 +38,22 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            Instantiate(barrierExplosionParticle, transform.position, barrierExplosionParticle.transform.rotation);
         }
 
         if (other.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            gameManager.UpdateScore(5);
+            Instantiate(enemyExplosionParticle, transform.position, enemyExplosionParticle.transform.rotation);
         }
 
         if (other.gameObject.CompareTag("Player") && playerScript.isInvincible == false)
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            Instantiate(playerExplosionParticle, transform.position, playerExplosionParticle.transform.rotation);
         }
     }
 }
