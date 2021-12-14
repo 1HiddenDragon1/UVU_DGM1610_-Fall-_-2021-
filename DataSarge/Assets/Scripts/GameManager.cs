@@ -26,9 +26,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", enemySpawnDelay, enemySpawnTimer);
-        InvokeRepeating("SpawnBarrier", nonHostileSpawnDelay, nonHostileSpawnTimer);
-        InvokeRepeating("SpawnInvincibility", nonHostileSpawnDelay, nonHostileSpawnTimer);
+        while (gameOver == false)
+        {
+            InvokeRepeating("SpawnEnemy", enemySpawnDelay, enemySpawnTimer);
+            InvokeRepeating("SpawnBarrier", nonHostileSpawnDelay, nonHostileSpawnTimer);
+            InvokeRepeating("SpawnInvincibility", nonHostileSpawnDelay, nonHostileSpawnTimer);
+        }
     }
 
 
