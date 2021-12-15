@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Transform gunbarrel;
     public GameObject powerupIndicator;
 
+    public ParticleSystem powerupParticle;
+
     Vector3 movement;
 
     public bool isInvincible;
@@ -107,6 +109,7 @@ public class PlayerController : MonoBehaviour
             isInvincible = true;
             powerupIndicator.SetActive(true);
             StartCoroutine(PowerupCooldown());
+            Instantiate(powerupParticle, transform.position, powerupParticle.transform.rotation);
         }
     }
 
