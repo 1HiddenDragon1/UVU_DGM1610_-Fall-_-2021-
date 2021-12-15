@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject barrier;
     public GameObject enemy;
     public GameObject invincibility;
+    
     public TextMeshProUGUI scoreText;
-    //public ParticleSystem explosionParticle;
+    public TextMeshProUGUI gameOverText;
 
     private int score;
 
@@ -46,9 +48,8 @@ public class GameManager : MonoBehaviour
         if (!GameObject.FindGameObjectWithTag("Player"))
         {
             gameOver = true;
+            gameOverText.gameObject.SetActive(true);
         }
-
-        //IfDestroyed();
     }
 
     public void UpdateScore(int scoreToAdd)
@@ -95,13 +96,9 @@ public class GameManager : MonoBehaviour
             Instantiate(invincibility, spawnNHPos, invincibility.gameObject.transform.rotation);
         }
     }
-    /*
-    void IfDestroyed()
+
+    public void RestartGame()
     {
-        if (GameObject.FindGameObjectWithTag("Player") == false)
-        {
-            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        }
+        EditorSceneManager.LoadScene(EditorSceneManager.GetActiveScene().name);
     }
-    */
 }
